@@ -5,6 +5,30 @@ import { ScrollTrigger } from 'gsap/all'
 
 gsap.registerPlugin(ScrollTrigger);
 
+const leafStyles = {
+  base: {
+    position: 'absolute',
+    zIndex: 1,
+    willChange: 'transform',
+    pointerEvents: 'none',
+    userSelect: 'none',
+    transition: 'bottom 0.3s, left 0.3s, right 0.3s, width 0.3s, height 0.3s',
+  },
+  left: {
+    left: 0,
+    bottom: 0,
+    width: '120px',
+    height: 'auto',
+  },
+  right: {
+    right: 0,
+    bottom: 0,
+    width: '120px',
+    height: 'auto',
+  },
+  // Mobile overrides will be handled in a style tag below
+};
+
 const Cocktails = () => {
   const leftLeafRef = useRef(null);
   const rightLeafRef = useRef(null);
@@ -55,20 +79,43 @@ const Cocktails = () => {
   }, []);
 
   return (
-    <section id='cocktails' className='noisy'>
+    <section id='cocktails' className='noisy' style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Responsive styles for leaves */}
+      <style>
+        {`
+          #c-left-leaf, #c-right-leaf {
+            max-width: 120px;
+            width: 100%;
+            height: auto;
+          }
+          @media (max-width: 768px) {
+            #c-left-leaf, #c-right-leaf {
+              max-width: 70px;
+            }
+            #c-left-leaf {
+              left: 8px !important;
+              bottom: 8px !important;
+            }
+            #c-right-leaf {
+              right: 8px !important;
+              bottom: 8px !important;
+            }
+          }
+        `}
+      </style>
       <img
         src="/images/cocktail-left-leaf.png"
         alt="left-leaf"
         id='c-left-leaf'
         ref={leftLeafRef}
-        style={{ willChange: 'transform' }}
+        style={{ ...leafStyles.base, ...leafStyles.left }}
       />
       <img
         src="/images/cocktail-right-leaf.png"
         alt="right-leaf"
         id='c-right-leaf'
         ref={rightLeafRef}
-        style={{ willChange: 'transform' }}
+        style={{ ...leafStyles.base, ...leafStyles.right }}
       />
 
       <div className="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-20 px-4 md:px-16 py-10">

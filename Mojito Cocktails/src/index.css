@@ -85,7 +85,7 @@ body {
     }
 
     .noisy {
-        @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+        @apply absolute inset-0 size-full bg-[url("/images/noise.png")] z-0;
     }
 
     #hero {
@@ -223,7 +223,7 @@ body {
             }
 
             img {
-                @apply object-cover w-full h-full;
+                @apply object-cover w-full h-full relative z-10;
             }
         }
 
@@ -235,7 +235,7 @@ body {
             }
 
             img {
-                @apply object-cover w-full h-full;
+                @apply object-cover w-full h-full relative z-10;
             }
         }
     }
