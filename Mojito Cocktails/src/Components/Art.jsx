@@ -58,8 +58,8 @@ const Art = () => {
 
                 <div className='masked-container'>
                     <h2 className='will-fade'>Sip-Worthy Perfection</h2>
-                    <div id='masked-content'>
-                        <h3>Made with Craft , Poured with Passion</h3>
+                    <div id='masked-content' style={{ marginTop: '6rem' }}>
+                        <h3 style={{ marginBottom: '0.5rem' }}>Made with Craft , Poured with Passion</h3>
                         <p>This isn't just a drink. It's a carefully crafted moment made just for you.</p>
                     </div>
                 </div>
