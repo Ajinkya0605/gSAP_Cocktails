@@ -39,18 +39,14 @@ const Menu = () => {
             <img src="/images/slider-left-leaf.png" alt="left-leaf" id='m-left-leaf'/>
             <img src="/images/slider-right-leaf.png" alt="right-leaf" id='m-right-leaf'/>
 
-            <nav className='cocktail-tabs flex justify-center gap-4 mb-8' aria-label='Cocktails Navigation'>
+            <nav className='cocktail-tabs' aria-label='Cocktails Navigation'>
                 {allCocktails.map((cocktail, index) => {
                     const isActive = index === currentIndex;
 
                     return (
                         <button
                             key={cocktail.id}
-                            className={`px-4 py-2 border-b-2 transition-colors font-semibold ${
-                                isActive
-                                    ? 'text-white border-white'
-                                    : 'text-white/50 border-white/30'
-                            }`}
+                            className={isActive ? 'text-yellow border-yellow' : ''}
                             onClick={() => goToSlide(index)}
                         >
                             {cocktail.name}
