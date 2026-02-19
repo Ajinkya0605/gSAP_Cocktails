@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap';
-import { SplitText } from 'gsap/all'
+import SplitType from 'split-type';
 
 // Custom hook to detect mobile screen size without using react-responsive
 function useIsMobile() {
@@ -24,8 +24,8 @@ const Hero = () => {
     const isMobile = useIsMobile();
 
     useEffect(() => {
-        const heroSplit = new SplitText('.title', { type: 'chars,words' });
-        const paragraphSplit = new SplitText('.subtitle', { type: 'lines' });
+        const heroSplit = new SplitType('.title', { types: 'chars,words' });
+        const paragraphSplit = new SplitType('.subtitle', { types: 'lines' });
 
         heroSplit.chars.forEach((char) => char.classList.add('text-gradient'));
 
@@ -55,11 +55,11 @@ const Hero = () => {
             .to('.right-leaf', { y: -200 }, 0)
             .to('.left-leaf', { y: 200 }, 0);
 
-        
+
         const startValue = isMobile ? 'top: 50%' : 'center 60%';
         const endValue = isMobile ? 'top: 120%' : 'bottom top';
 
-        
+
         if (videoRef.current) {
             const tl = gsap.timeline({
                 scrollTrigger: {

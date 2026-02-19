@@ -1,13 +1,13 @@
 import React from 'react'
 import { openingHours, socials } from '../../constants'
 import { useGSAP } from '@gsap/react'
-import { SplitText } from 'gsap/all'
+import SplitType from 'split-type';
 import gsap from 'gsap'
 
 const Contact = () => {
 
     useGSAP(() => {
-        const titlSplit = SplitText.create('#contact h2',{type: 'words'});
+        const titlSplit = new SplitType('#contact h2', { types: 'words' });
 
         const timeline = gsap.timeline({
             scrollTrigger: {
@@ -20,15 +20,15 @@ const Contact = () => {
         timeline.from(titlSplit.words, {
             opacity: 0, yPercent: 100, stagger: 0.02
         })
-        .from('#contac h3, #contact p',{
-            opacity: 0, yPercent: 100, stagger: 0.02
-        })
-        .to('#f-right-leaf', {
-            y: '-50', duration: 1, ease: 'power1.inOut'
-        })
-        .to('#f-left-leaf', {
-            y: '-50', duration: 1, ease: 'power1.inOut'
-        }, '<')
+            .from('#contac h3, #contact p', {
+                opacity: 0, yPercent: 100, stagger: 0.02
+            })
+            .to('#f-right-leaf', {
+                y: '-50', duration: 1, ease: 'power1.inOut'
+            })
+            .to('#f-left-leaf', {
+                y: '-50', duration: 1, ease: 'power1.inOut'
+            }, '<')
     })
 
     return (

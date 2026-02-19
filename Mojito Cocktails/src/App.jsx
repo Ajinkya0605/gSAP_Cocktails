@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollTrigger, SplitText } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 
 import Navbar from './Components/Navbar';
@@ -11,7 +11,7 @@ import Menu from './Components/Menu.jsx';
 import Contact from './Components/Contact.jsx';
 
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
       <About />
       <Art />
       <Menu />
-      <Contact/>
+      <Contact />
     </main>
   )
 }
